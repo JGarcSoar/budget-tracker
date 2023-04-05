@@ -14,29 +14,29 @@ app.listen(5000, () => {
 //ROUTES//
 
 //Show Budget
-/*app.get("/Budget", async(req, res) => {
+app.get("/Budget", async(req, res) => {
     try {
-        const yourBudget = await pool.query("SELECT * FROM your_budget");
-        res.json(yourBudget.rows)
+        const showBudget = await pool.query("SELECT * FROM your_budget");
+        res.json(showBudget.rows)
     } catch (err) {
         console.error(err.message)
     }
 });
 //Update Budget
-/*app.put("/Budget/:budget_id", async (req, res) => {
+app.put("/Budget/:budget_id", async (req, res) => {
     try {
         const {budget_id} = req.params;
         const {current_budget} = req.body;
-        const updateBudget = await pool.query("UPDATE your_budget SET current_budget = $1 WHERE current_budget = $2", [current_budget, budget_id]
+        const updateBudget = await pool.query("UPDATE your_budget SET current_budget = $1 WHERE budget_id = $2", [current_budget, budget_id]
         );
 
         res.json("Budget updated!");
     }catch (err) {
         console.error(err.message)
     }
-})*/
+})
 //Add expense
-app.post("/Budget", async(req, res) => {
+app.post("/Expenses", async(req, res) => {
     try {
         const {expense, expense_cost} = req.body;
         const newExpense = await pool.query("INSERT INTO expenses (expense, expense_cost) VALUES($1, $2)", 
@@ -49,7 +49,7 @@ app.post("/Budget", async(req, res) => {
     });
 
 //Show all expenses
-app.get("/Budget", async(req, res) => {
+app.get("/Expenses", async(req, res) => {
     try {
         const allExpenses = await pool.query("SELECT * FROM expenses");
         res.json(allExpenses.rows)
@@ -59,7 +59,7 @@ app.get("/Budget", async(req, res) => {
 });
 
 //Show specific expense (Might not use)
-app.get("/Budget/:expense", async (req, res) => {
+app.get("/Expenses/:expense", async (req, res) => {
     try{
         const {expense} = req.params;
         const expenses = await pool.query("SELECT * FROM expenses WHERE expense = $1", [expense])
@@ -71,7 +71,7 @@ app.get("/Budget/:expense", async (req, res) => {
 })
 
 //Update expense Cost
-app.put("/Budget/:expense", async (req, res) => {
+app.put("/Expenses/:expense", async (req, res) => {
     try {
         const {expense} = req.params;
         const {expense_cost} = req.body;
@@ -85,7 +85,7 @@ app.put("/Budget/:expense", async (req, res) => {
 })
 
 //Delete expense
-app.delete("/Budget/:expense", async (req, res) => {
+app.delete("/Expenses/:expense", async (req, res) => {
     try {
         const {expense} = req.params;
         const deleteExpense = await pool.query("DELETE FROM expenses WHERE expense = $1", [expense]
@@ -95,3 +95,4 @@ app.delete("/Budget/:expense", async (req, res) => {
         console.error(err.message)
     }
 })
+
