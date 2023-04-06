@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react';
 import './App.css';
 
+//components
+import InputExpense from './components/InputExpense';
+
 function App() {
   return (
-    <Fragment></Fragment>
+    <Fragment>
+      <InputExpense />
+    </Fragment>
   );
 }
 
