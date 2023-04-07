@@ -14,18 +14,18 @@ function InputExpense () {
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify(body)
             });
-            console.log(response);
+            window.location = "/";
         } catch (err) {
         console.error(err.message)
         }
     };
     return (
         <Fragment>
-        <h1>Input Expense Here</h1>
+        <h1>Input Expenses Here</h1>
         <form onSubmit={onSubmitForm}>
-            <h3>Expense</h3>
+            <h5>Expense</h5>
             <input type ="text" value={expense} onChange={e => setExpense(e.target.value)}/>
-            <h3>Cost</h3>
+            <h5>Cost</h5>
             <input type ="text" value={expense_cost} onChange={e => setExpenseCost(e.target.value)}/>
             <button>Submit</button>
         </form>

@@ -85,10 +85,10 @@ app.put("/Expenses/:expense", async (req, res) => {
 })
 
 //Delete expense
-app.delete("/Expenses/:expense", async (req, res) => {
+app.delete("/Expenses/:id", async (req, res) => {
     try {
-        const {expense} = req.params;
-        const deleteExpense = await pool.query("DELETE FROM expenses WHERE expense = $1", [expense]
+        const {id} = req.params;
+        const deleteExpense = await pool.query("DELETE FROM expenses WHERE id = $1", [id]
         );
         res.json("You deleted the expense!");
     }catch (err) {
