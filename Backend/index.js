@@ -71,14 +71,14 @@ app.get("/Expenses/:expense", async (req, res) => {
 })
 
 //Update expense Cost
-app.put("/Expenses/:expense", async (req, res) => {
+app.put("/Expenses/:id", async (req, res) => {
     try {
-        const {expense} = req.params;
+        const {id} = req.params;
         const {expense_cost} = req.body;
-        const updateExpense = await pool.query("UPDATE expenses SET expense_cost = $1 WHERE expense = $2", [expense_cost, expense]
+        const updateExpense = await pool.query("UPDATE expenses SET expense_cost = $1 WHERE id = $2", [expense_cost, id]
         );
 
-        res.json("Cost updated!");
+        res.json("Expense updated!");
     }catch (err) {
         console.error(err.message)
     }
