@@ -84,6 +84,21 @@ app.put("/Expenses/:id", async (req, res) => {
     }
 })
 
+////////////
+/*app.put("/Expenses/:id", async (req, res) => {
+    const {id} = req.params;
+    const {expense_cost} = req.body;
+    try {
+        const updateExpense = await pool.query("UPDATE expenses SET expense_cost = $1 WHERE id = $2;", [expense_cost, id]
+        );
+        res.json(updateExpense);
+    }catch (err) {
+        console.error(err.message)
+    }
+})*/
+///////////
+
+
 //Delete expense
 app.delete("/Expenses/:id", async (req, res) => {
     try {

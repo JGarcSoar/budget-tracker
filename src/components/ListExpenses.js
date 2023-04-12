@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from "react";
-import EditExpenses from "./EditExpenses";
+//import EditExpenses from "./EditExpenses";
 
 const ListExpenses = () => {
 
@@ -25,7 +25,6 @@ const deleteExpense = async id => {
         try {
         const response = await fetch("http://localhost:5000/expenses");
         const jsonData = await response.json();
-
         setExpense(jsonData);
     } catch (err) {
         console.error(err.message);
@@ -44,8 +43,8 @@ const deleteExpense = async id => {
       <tr>
         <th>Expense</th>
         <th>Cost</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        {/*<th>Edit</th> */}
+        {/*<th>Delete</th>*/}
       </tr>
     </thead>
     <tbody>
@@ -53,9 +52,7 @@ const deleteExpense = async id => {
         <tr key={expenses.id}>
         <td>{expenses.expense}</td>
         <td>${expenses.expense_cost}</td>
-        <td><EditExpenses 
-        expenses ={expenses} 
-        expense_cost ={expenses.expense_cost}/>
+        <td>
         </td>
         <td><button onClick={() => deleteExpense(expenses.id)}>Delete</button></td>
       </tr>

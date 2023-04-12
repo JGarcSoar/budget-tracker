@@ -1,55 +1,94 @@
-import React, {Fragment, useState} from "react";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import React, { Fragment, useState } from "react";
 
-function EditExpenses ({expenses, expense_cost}) {
-    const [expense, setExpense] = useState(expenses.expense);
-    const [expenseCost, setExpenseCost] =useState(expenses.expense_cost);
-    console.log(expenses, expense_cost);
-    //Modal Functions
-    const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+const EditExpenses = ({ expenses }) => {
+  const [expense_cost, setExpenseCost] = useState(expenses.expense_cost);
 
-return(
+  //edit expense function
 
-    <Fragment><>
-    <Button variant="primary" onClick={handleShow}>
-      Edit Cost
-    </Button>
+  const updateExpense = async e => {
+    e.preventDefault();
+    try {
+      const body = { expense_cost };
+      const response = await fetch(
+        `http://localhost:5000/expenses/${expenses.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        }
+      );
 
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Make Changes</Modal.Title>
-      </Modal.Header>
+      window.location = "/";
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
-      <Modal.Body>
-    <h5>Expense</h5>
-        <input type='text'
-        value={expense}  
-        onChange={e => setExpense(e.target.value) }
-        />
-    
-    <h5>Cost</h5>
-        <input type='number'
-        value={expenseCost}
-        onChange={e => setExpenseCost(e.target.value) }
-        />
-      </Modal.Body>
-      
-      <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
-        Apply Changes
-        </Button>
-        
-        <Button variant="secondary" onClick={handleClose}>
-        Close
-        </Button>
-      
-      </Modal.Footer>
-    </Modal>
-  </></Fragment>
+  return (
+    <Fragment>
+      <button
+        type="button"
+        class="btn btn-warning"
+        data-toggle="modal"
+        data-target={`#id${expenses.id}`}
+      >
+        Edit
+      </button>
+
+      {/* 
+        id = id10
+      */}
+      <div
+        class="modal"
+        id={`id${expenses.id}`}
+        onClick={() => setExpenseCost(expenses.expense_cost)}
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Cost</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                onClick={() => setExpenseCost(expenses.expense_cost)}
+              >
+                &times;
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <input
+                type="text"
+                className="form-control"
+                value={expense_cost}
+                onChange={e => setExpenseCost(e.target.value)}
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-warning"
+                data-dismiss="modal"
+                onClick={e => updateExpense(e)}
+              >
+                Edit
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-dismiss="modal"
+                onClick={() => setExpenseCost(expenses.expense_cost)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
   );
-}
+};
 
 export default EditExpenses;
