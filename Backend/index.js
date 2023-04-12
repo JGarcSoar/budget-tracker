@@ -59,7 +59,7 @@ app.get("/Expenses", async(req, res) => {
 });
 
 //Show specific expense (Might not use)
-app.get("/Expenses/:expense", async (req, res) => {
+/*app.get("/Expenses/:expense", async (req, res) => {
     try{
         const {expense} = req.params;
         const expenses = await pool.query("SELECT * FROM expenses WHERE expense = $1", [expense])
@@ -68,10 +68,10 @@ app.get("/Expenses/:expense", async (req, res) => {
     } catch (err) {
         console.error(err.message);
     }
-})
+})*/
 
 //Update expense Cost
-app.put("/Expenses/:id", async (req, res) => {
+/*app.put("/Expenses/:id", async (req, res) => {
     try {
         const {id} = req.params;
         const {expense_cost} = req.body;
@@ -83,20 +83,7 @@ app.put("/Expenses/:id", async (req, res) => {
         console.error(err.message)
     }
 })
-
-////////////
-/*app.put("/Expenses/:id", async (req, res) => {
-    const {id} = req.params;
-    const {expense_cost} = req.body;
-    try {
-        const updateExpense = await pool.query("UPDATE expenses SET expense_cost = $1 WHERE id = $2;", [expense_cost, id]
-        );
-        res.json(updateExpense);
-    }catch (err) {
-        console.error(err.message)
-    }
-})*/
-///////////
+*/
 
 
 //Delete expense

@@ -58,6 +58,12 @@ const deleteExpense = async id => {
       </tr>
         ))}
     </tbody>
+    <tfoot>
+    <tr>
+      <td>Sum</td>
+      <td></td>
+    </tr>
+  </tfoot>
   </table>
   </Fragment>
   ) 
