@@ -5,7 +5,7 @@ const pool = require("./db")
 
 //middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); //req.body
 
 app.listen(5000, () => {
     console.log("server has started on port 5000");
@@ -58,34 +58,6 @@ app.get("/Expenses", async(req, res) => {
     }
 });
 
-//Show specific expense (Might not use)
-/*app.get("/Expenses/:expense", async (req, res) => {
-    try{
-        const {expense} = req.params;
-        const expenses = await pool.query("SELECT * FROM expenses WHERE expense = $1", [expense])
-
-        res.json(expenses.rows[0])
-    } catch (err) {
-        console.error(err.message);
-    }
-})*/
-
-//Update expense Cost
-/*app.put("/Expenses/:id", async (req, res) => {
-    try {
-        const {id} = req.params;
-        const {expense_cost} = req.body;
-        const updateExpense = await pool.query("UPDATE expenses SET expense_cost = $1 WHERE id = $2", [expense_cost, id]
-        );
-
-        res.json("Expense updated!");
-    }catch (err) {
-        console.error(err.message)
-    }
-})
-*/
-
-
 //Delete expense
 app.delete("/Expenses/:id", async (req, res) => {
     try {
@@ -98,3 +70,14 @@ app.delete("/Expenses/:id", async (req, res) => {
     }
 })
 
+
+
+////////////////Authentication Routes/////////////////
+
+//register & Login
+
+app.use("/auth", require("./routes/BudgetAuth"));
+
+//dashboard route
+
+app.use("/dashboard", require("./routes/dashboard"))
