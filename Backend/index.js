@@ -3,6 +3,8 @@ const app= express();
 const cors = require("cors");
 const pool = require("./db")
 
+const jwt = require('jsonwebtoken')
+
 //middleware
 app.use(cors());
 app.use(express.json()); //req.body

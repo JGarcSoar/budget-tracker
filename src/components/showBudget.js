@@ -27,6 +27,7 @@ function ShowBudget(){
     <UpdateBudget budget={budgets}/>
     </Fragment>
     )
+
 };
 
 export default ShowBudget;
