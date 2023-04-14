@@ -52,8 +52,9 @@ app.post("/Expenses", async(req, res) => {
 
 //Show all expenses
 app.get("/Expenses", async(req, res) => {
+    const userEmail = 'lol@aol.com'
     try {
-        const allExpenses = await pool.query("SELECT * FROM expenses");
+        const allExpenses = await pool.query("SELECT * FROM expenses WHERE user_email = $1", [userEmail])
         res.json(allExpenses.rows)
     } catch (err) {
         console.error(err.message)

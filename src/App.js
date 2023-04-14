@@ -6,9 +6,7 @@ import {BrowserRouter as Router, Route, Redirect, Routes} from "react-router-dom
 import ShowBudget from './components/showBudget';
 import InputExpense from './components/InputExpense';
 import ListExpenses from './components/ListExpenses';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
-import Register from './components/Register';
+import ExpenseHeader from './components/ExpenseHeader';
 
 function App() {
 
@@ -17,15 +15,7 @@ function App() {
   
   return (
     <Fragment>
-      <Router>
-      <div className='container'>
-        <Routes>
-        <Route exact path="/login" element ={<Login/>}/>
-        <Route exact path="/register" element ={<Register/>}/>
-        <Route exact path="/dashboard" element ={<Dashboard/>}/>
-        </Routes>
-        </div>
-      </Router>
+      <ExpenseHeader listName={'Welcome'}/>
       <ShowBudget />
       <InputExpense />
       <ListExpenses />
