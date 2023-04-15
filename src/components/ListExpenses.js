@@ -22,8 +22,9 @@ const deleteExpense = async id => {
 }
 ////
     const showExpenses = async () => {
+      const userEmail= "lol@aol.com"
         try {
-        const response = await fetch("http://localhost:5000/expenses");
+        const response = await fetch/*("http://localhost:5000/expenses")*/(`http://localhost:5000/expenses/${userEmail}`);
         const jsonData = await response.json();
         setExpense(jsonData);
     } catch (err) {

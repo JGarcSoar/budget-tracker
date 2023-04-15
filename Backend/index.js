@@ -6,6 +6,7 @@ const pool = require("./db")
 const jwt = require('jsonwebtoken')
 
 //middleware
+
 app.use(cors());
 app.use(express.json()); //req.body
 
@@ -40,9 +41,9 @@ app.put("/Budget/:budget_id", async (req, res) => {
 //Add expense
 app.post("/Expenses", async(req, res) => {
     try {
-        const {expense, expense_cost} = req.body;
-        const newExpense = await pool.query("INSERT INTO expenses (expense, expense_cost) VALUES($1, $2)", 
-        [expense, expense_cost]
+        const {expense, expense_cost, user_email} = req.body;
+        const newExpense = await pool.query("INSERT INTO expenses (expense, expense_cost, user_email) VALUES($1, $2, $3)", 
+        [expense, expense_cost, user_email]
         );
         res.json(newExpense.rows[0])
     } catch (err) {
@@ -50,9 +51,11 @@ app.post("/Expenses", async(req, res) => {
     }
     });
 
+
+
 //Show all expenses
-app.get("/Expenses", async(req, res) => {
-    const userEmail = 'lol@aol.com'
+app.get("/Expenses/:userEmail", async(req, res) => {
+    const userEmail = req.params.userEmail
     try {
         const allExpenses = await pool.query("SELECT * FROM expenses WHERE user_email = $1", [userEmail])
         res.json(allExpenses.rows)
@@ -60,6 +63,10 @@ app.get("/Expenses", async(req, res) => {
         console.error(err.message)
     }
 });
+
+
+
+
 
 //Delete expense
 app.delete("/Expenses/:id", async (req, res) => {
@@ -84,3 +91,4 @@ app.use("/auth", require("./routes/BudgetAuth"));
 //dashboard route
 
 app.use("/dashboard", require("./routes/dashboard"))
+
