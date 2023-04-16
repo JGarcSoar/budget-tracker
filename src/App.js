@@ -3,13 +3,13 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Redirect, Routes} from "react-router-dom";
 //components
+import Auth from './components/Auth';
 import ShowBudget from './components/showBudget';
 import InputExpense from './components/InputExpense';
 import ListExpenses from './components/ListExpenses';
 import ExpenseHeader from './components/ExpenseHeader';
 
 function App() {
-
   /*const getData = async () => {
     const userEmail= 'lol@aol.com'
     try {
@@ -26,14 +26,21 @@ useEffect(() => getData, [])*/
 
   //const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  const authToken = false
+
   
   return (
     <Fragment>
+      {!authToken && <Auth/>}
+     {authToken &&
+     <>
      <ExpenseHeader listName={'Welcome'}/>
       <ShowBudget />
       <InputExpense />
       <ListExpenses />
-      <InputExpense />
+      <InputExpense /> 
+      </>
+      }
     </Fragment>
   );
 }
