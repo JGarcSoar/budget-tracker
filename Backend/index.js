@@ -53,14 +53,25 @@ app.post("/Expenses", async(req, res) => {
 
 
 
+//Show all of user's expenses 
+//app.get("/Expenses/:userEmail", async(req, res) => {
+    
+   // const userEmail = req.params.userEmail
+    //try {
+     //   const allExpenses = await pool.query/("SELECT * FROM expenses WHERE user_email = $1", [userEmail])
+     //   res.json(allExpenses.rows)
+    //} catch (err) {
+    //    console.error(err.message)
+   // }
+//});
+
 //Show all expenses
-app.get("/Expenses/:userEmail", async(req, res) => {
-    const userEmail = req.params.userEmail
-    try {
-        const allExpenses = await pool.query("SELECT * FROM expenses WHERE user_email = $1", [userEmail])
-        res.json(allExpenses.rows)
+app.get("/Expenses", async (req, res) => {
+    try{
+        const expenses = await pool.query("SELECT * FROM expenses");
+        res.json(expenses.rows)
     } catch (err) {
-        console.error(err.message)
+        console.error(err.message);
     }
 });
 

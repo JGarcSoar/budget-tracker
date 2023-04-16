@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Budget-Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple app for logging your expenses and monitoring your budget. 
 
-## Available Scripts
+## Inspiration
 
-In the project directory, you can run:
+Because we are all very ~~boring~~ busy people we determined that an app with a practical use in the real world would be a good project to add to our portfolio. When you're busy and operating under an inflexible income having ways of tracking your spending is crucial.
 
-### `npm start`
+## How to Use
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Sign up by using the sign up form that pops up upon launching the app. After correctly entering your credentials you should immediately be greeted by the following page:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="ReadmeImages\Screenshot (577).png" alt="signup" title="signup">
 
-### `npm test`
+From here, your options are: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Inputing a new budget by typing it into the "Input New Budget Here" field and clicking "Submit".
 
-### `npm run build`
+* Adding an expense to the "Your Expenses" list by inputting a name for the expense as well as a cost under "Input Expenses Here".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Deleting any expenses you've added by clicking the "Delete" button.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* You can then sign out by clicking the "SIGN OUT" button in the header.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* To sign back in simply use the log in form and enter your credentials again.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This app was created with React and is written mostly in Javascript and jsx as a result. nodeJS and Express were used for the backend and the packages bycrpt and jwt were used for the authentication and encryption. The user information, expense data, and, budget info are stored in postgres tables. Some bootstrap was used but the majority of the styling was done with traditional CSS.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Bugs and Unfinished Functionality
+Due to time constraints and technical difficulties certain features needed to be dummied out or scaled back. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Initially the plan was to allow users to automatically add up their expenses and compare the sum to their budget. The app would then alert the user if they went over budget but implementing that became too complex. 
 
-## Learn More
+* Users also would have been able to edit the name and cost of an expense after listing it but this was deemed too niche a feature to bother with in the alloted time since we figured any time an expense needed to be updated the cost naturally would as well so it might be better to just replace it entirely with the Delete function instead.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* The biggest issue however is that the expense and budget data is not tied to a particular user and can be viewed by anyone logged into the app. This makes listing sensitive info very dangerous and logging in, though secure, basically pointless unless you're a very lonely person willing to give their personal info to a soulless app just so it can say "Hi" to you.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Changelog
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

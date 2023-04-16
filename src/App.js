@@ -12,7 +12,6 @@ import {useCookies} from 'react-cookie'
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null)
   const authToken = cookies.AuthToken
-
   
   return (
     <Fragment>

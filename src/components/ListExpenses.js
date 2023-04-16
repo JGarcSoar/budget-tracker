@@ -1,16 +1,9 @@
 import React, {Fragment, useEffect, useState} from "react";
-import {UseCookies} from 'react-cookie'
 //import EditExpenses from "./EditExpenses";
-import {useCookies} from 'react-cookie'
-
-const authToken = false
-
-
 
 const ListExpenses = () => {
-  
+
     const [expense, setExpense] = useState([]);
-    
 
 //Delete expense Function
 
@@ -29,12 +22,8 @@ const deleteExpense = async id => {
 }
 ////
     const showExpenses = async () => {
-      
-      const authToken = cookies.AuthToken
-      const [cookies, setCookie, removeCookie] = UseCookies(null)
-      const userEmail= cookies.Email
         try {
-        const response = await fetch (`http://localhost:5000/expenses/${userEmail}`);
+        const response = await fetch("http://localhost:5000/expenses");
         const jsonData = await response.json();
         setExpense(jsonData);
     } catch (err) {
@@ -42,10 +31,8 @@ const deleteExpense = async id => {
     }
     };
     useEffect(() => {
-      if (authToken) {
-        showExpenses()
-      }
-    }, [])
+        showExpenses();
+    }, []);
 
     console.log(expense);
     return (
@@ -71,12 +58,6 @@ const deleteExpense = async id => {
       </tr>
         ))}
     </tbody>
-    <tfoot>
-    <tr>
-      <td>Sum</td>
-      <td></td>
-    </tr>
-  </tfoot>
   </table>
   </Fragment>
   ) 
