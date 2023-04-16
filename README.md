@@ -12,6 +12,10 @@ Sign up by using the sign up form that pops up upon launching the app. After cor
 
 <img src="ReadmeImages\Screenshot (577).png" alt="signup" title="signup">
 
+### This is how your screen should look now:
+
+<img src="ReadmeImages\Screenshot (578).png" alt="signup" title="signup">
+
 From here, your options are: 
 
 * Inputing a new budget by typing it into the "Input New Budget Here" field and clicking "Submit".
