@@ -15,7 +15,7 @@ function App() {
   
   return (
     <Fragment>
-      {!authToken && <Auth/>}
+    {!authToken && <Auth/>}
      {authToken &&
      <>
      <ExpenseHeader listName={`Welcome home, ${cookies.Email}`}/>
@@ -24,7 +24,7 @@ function App() {
       <ListExpenses />
       <InputExpense /> 
       </>
-      }
+      } 
     </Fragment>
   );
 }

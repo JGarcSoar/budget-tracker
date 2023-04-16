@@ -23,8 +23,8 @@ function UpdateBudget({budget}){
         <Fragment>
         <form>
             <h5>Input New Budget Here</h5>
-            <input type ="numbers" value={current_budget} onChange ={e => setCurrentBudget(e.target.value)}/>
-            <button onClick={e => changeBudget(e)}>Submit</button>
+            $ <input type ="numbers" value={current_budget} onChange ={e => setCurrentBudget(e.target.value)}/>
+            <button className="submit" onClick={e => changeBudget(e)}>Submit</button>
         </form>
         </Fragment>
     )

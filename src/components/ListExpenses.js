@@ -54,7 +54,7 @@ const deleteExpense = async id => {
         <td>${expenses.expense_cost}</td>
         <td>
         </td>
-        <td><button onClick={() => deleteExpense(expenses.id)}>Delete</button></td>
+        <td><button className="delete" onClick={() => deleteExpense(expenses.id)}>Delete</button></td>
       </tr>
         ))}
     </tbody>

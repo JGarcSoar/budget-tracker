@@ -31,7 +31,7 @@ function InputExpense () {
             <input type ="text" value={expense} onChange={e => setExpense(e.target.value)}/>
             <h5>$ Cost</h5>
             <input type ="text" value={expense_cost} onChange={e => setExpenseCost(e.target.value)}/>
-            <button>Submit</button>
+            <button className="submit">Add Expense</button>
         </form>
         </Fragment>
     )
