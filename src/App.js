@@ -8,6 +8,7 @@ import ShowBudget from './components/showBudget';
 import InputExpense from './components/InputExpense';
 import ListExpenses from './components/ListExpenses';
 import ExpenseHeader from './components/ExpenseHeader';
+import {useCookies} from 'react-cookie'
 
 function App() {
   /*const getData = async () => {
@@ -26,7 +27,8 @@ useEffect(() => getData, [])*/
 
   //const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const authToken = false
+  const [cookies, setCookie, removeCookie] = useCookies(null)
+  const authToken = cookies.AuthToken
 
   
   return (

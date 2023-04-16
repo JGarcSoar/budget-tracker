@@ -1,5 +1,9 @@
 import React, {Fragment, useEffect, useState} from "react";
+import {UseCookies} from 'react-cookie'
 //import EditExpenses from "./EditExpenses";
+
+const authToken = false
+
 
 const ListExpenses = () => {
 
@@ -22,7 +26,9 @@ const deleteExpense = async id => {
 }
 ////
     const showExpenses = async () => {
-      const userEmail= "lol@aol.com"
+      const authToken = cookies.AuthToken
+      const [cookies, setCookie, removeCookie] = UseCookies(null)
+      const userEmail= cookies.Email
         try {
         const response = await fetch/*("http://localhost:5000/expenses")*/(`http://localhost:5000/expenses/${userEmail}`);
         const jsonData = await response.json();
@@ -31,9 +37,14 @@ const deleteExpense = async id => {
         console.error(err.message);
     }
     };
+    //useEffect(() => {
+        //showExpenses();
+    //}, []);
     useEffect(() => {
-        showExpenses();
-    }, []);
+      if (authToken) {
+        showExpenses()
+      }
+    }, [])
 
     console.log(expense);
     return (
