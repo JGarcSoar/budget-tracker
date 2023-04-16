@@ -12,6 +12,10 @@ Sign up by using the sign up form that pops up upon launching the app. After cor
 
 <img src="ReadmeImages\Screenshot (577).png" alt="signup" title="signup">
 
+### This is how your screen should look now:
+
+<img src="ReadmeImages\Screenshot (578).png" alt="signup" title="signup">
+
 From here, your options are: 
 
 * Inputing a new budget by typing it into the "Input New Budget Here" field and clicking "Submit".
@@ -39,4 +43,21 @@ Due to time constraints and technical difficulties certain features needed to be
 * The biggest issue however is that the expense and budget data is not tied to a particular user and can be viewed by anyone logged into the app. This makes listing sensitive info very dangerous and logging in, though secure, basically pointless unless you're a very lonely person willing to give their personal info to a soulless app just so it can say "Hi" to you.
 
 ## Changelog
-
+-post presentation
+-readme
+-For safety
+-Initial  Register and Login tests successful!
+-We have a login page!
+-Tables updated to include email columns. Expenses will only display on page if they have an email associated with them.
+-Fixed decimal values in expenses table
+-Just testing things out
+-Backend authentication
+-First commit
+-Budget can now be updated. Expense update functionality dropped.
+-Expense Update component wip
+-Budget show
+-Can now upload expense to database from client side
+-Test Routes done
+-Started routes
+-first commit
+-Initial commit
