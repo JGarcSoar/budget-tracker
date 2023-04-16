@@ -16,6 +16,11 @@ h5 {
   padding-right: 10px;
 }
 
+.button-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .submit {
   background-color: rgb(97, 202, 202);
   border-radius: 5px;
@@ -24,10 +29,10 @@ h5 {
 }
 
 .signout {
-  background-color: rgb(97, 202, 202);
+  background-color: rgb(49, 235, 235);
   margin: 10px;
   border-radius: 5px;
-  border: none;
+  border: groove black;
 }
 
 .delete {
@@ -35,10 +40,6 @@ h5 {
   border-radius: 5px;
   border: none;
   margin-left: 10px;
-}
-
-.button:hover {
-  border: solid #282c34;
 }
 
 form {
