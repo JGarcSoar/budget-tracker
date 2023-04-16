@@ -30,6 +30,13 @@ h5 {
   border: none;
 }
 
+.delete {
+  background-color: rgb(254, 63, 0);
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+}
+
 .button:hover {
   border: solid #282c34;
 }
