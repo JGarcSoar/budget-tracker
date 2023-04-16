@@ -1,7 +1,6 @@
 import React, {Fragment, useEffect, useState} from "react";
 import UpdateBudget from "./UpdateBudget";
 
-
 function ShowBudget(){
 
     const [budgets, setBudgets] = useState([]);
