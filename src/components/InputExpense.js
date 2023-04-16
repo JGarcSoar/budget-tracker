@@ -1,5 +1,6 @@
 import React, {Fragment, useState} from "react";
 
+
 function InputExpense () {
 
     const [expense, setExpense] = useState("");
