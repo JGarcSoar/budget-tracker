@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import React, { Fragment, useEffect, useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//components
+import Auth from './components/Auth';
+import ShowBudget from './components/showBudget';
+import InputExpense from './components/InputExpense';
+import ListExpenses from './components/ListExpenses';
+import ExpenseHeader from './components/ExpenseHeader';
+import {useCookies} from 'react-cookie'
 
 function App() {
+  const [cookies, setCookie, removeCookie] = useCookies(null)
+  const authToken = cookies.AuthToken
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {/* {!authToken && <Auth/>}
+     {authToken && */}
+     <>
+     <ExpenseHeader listName={`Welcome home, ${cookies.Email}`}/>
+      <ShowBudget />
+      <InputExpense />
+      <ListExpenses />
+      <InputExpense /> 
+      </>
+      }
+    </Fragment>
   );
 }
 

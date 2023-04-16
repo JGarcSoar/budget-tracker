@@ -1,3 +1,37 @@
+/* * {
+  border: 1px solid red;
+} */
+
+#root {
+  background-color: rgb(168, 251, 223);
+}
+
+h1 {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button {
+  background-color: rgb(81, 50, 8);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+  margin: 5px;
+}
+
+input {
+  border-radius: 5px;
+  border: 10px;
+  margin: auto;
+}
+
+p {
+  text-align: center;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +69,52 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/*Header*/
+.Expense-Header{
+  background-color: rgb(0, 115, 104)
+}
+
+.button-container{
+  display:flex;
+  align-items: center;
+  
+}
+
+.table{
+  background-color: rgb(196, 250, 250);
+}
+
+/*Auth*/
+.auth-container {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+.auth-container-box {
+width: 300px;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: rgba(228, 221, 221, 0.5) 0 6px 24px, rgba(0,0,0,0.08) 0 0 0 1px;
+background-color: rgb(199, 225, 233);
+}
+
+.auth-container-box form {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  padding: 20px;
+}
+
+.auth-options {
+  display: flex;
+}
+
+.auth-options button {
+  width: 50%;
+  border: none;
+  padding: 10px;
+  color: rgb(15, 25, 62);
 }
