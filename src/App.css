@@ -11,8 +11,27 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.button {
-  background-color: rgb(81, 50, 8);
+h5 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.submit {
+  background-color: rgb(97, 202, 202);
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+}
+
+.signout {
+  background-color: rgb(97, 202, 202);
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.button:hover {
+  border: solid #282c34;
 }
 
 form {
@@ -25,11 +44,12 @@ form {
 input {
   border-radius: 5px;
   border: 10px;
-  margin: auto;
+  margin: 10px;
 }
 
 p {
   text-align: center;
+  font-weight: bold;
 }
 
 .App {

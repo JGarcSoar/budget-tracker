@@ -25,13 +25,13 @@ function InputExpense () {
         <Fragment>
         <h1>Input Expenses Here</h1>
         <form onSubmit={onSubmitForm}>
-            <h5>Email</h5>
-            <input type="text" value={user_email} onChange={e => setUserEmail(e.target.value)}></input>
+            {/* <h5>Email</h5>
+            <input type="text" value={user_email} onChange={e => setUserEmail(e.target.value)}></input> */}
             <h5>Expense</h5>
             <input type ="text" value={expense} onChange={e => setExpense(e.target.value)}/>
             <h5>$ Cost</h5>
             <input type ="text" value={expense_cost} onChange={e => setExpenseCost(e.target.value)}/>
-            <button>Add Expense</button>
+            <button className="submit">Add Expense</button>
         </form>
         </Fragment>
     )
