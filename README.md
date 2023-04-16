@@ -7,7 +7,7 @@ A simple app for logging your expenses and monitoring your budget.
 Because we are all very ~~boring~~ busy people we determined that an app with a practical use in the real world would be a good project to add to our portfolio. When you're busy and operating under an inflexible income having ways of tracking your spending is crucial.
 
 ## How to Use
-
+(Note: The app has undergone significant changes visually since this readme was last updated so the images below are not entirely accurate. All of the inputs and forms should still be the same however.)
 Sign up by using the sign up form that pops up upon launching the app. After correctly entering your credentials you should immediately be greeted by the following page:
 
 <img src="ReadmeImages\Screenshot (577).png" alt="signup" title="signup">
